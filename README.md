@@ -1,8 +1,8 @@
 # NerveEngine
-### Edge.hpp
-- 维护神经网络的边信息
 ### main.cpp
 - 调试主程序
+### Edge.hpp
+- 维护神经网络的边信息
 ### Nerves.hpp
 - 维护神经网络的点信息
 ### Debug.hpp
