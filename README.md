@@ -9,4 +9,5 @@
 - 更加美观地打印信息
 ### Check.hpp
 - 检查神经网络是否存在环
-### 
+### Active.hpp
+- 包含 Sigmoid 、Rule 激活函数
