@@ -12,7 +12,7 @@
 namespace CHECK{
     using namespace NERVES;
     std::set <TONERVE> vist,inque;
-    // 检查是否存在环
+    // 深搜检查是否存在环
     void dfs(TONERVE sNerve)
     {
         if( vist.find(sNerve) != vist.end() )

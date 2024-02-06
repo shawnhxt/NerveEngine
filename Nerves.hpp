@@ -51,6 +51,16 @@ namespace NERVES{
 }
 
 namespace NERVES{
+	/*
+		@brief
+			新建点集
+		@param
+			name 点集名称
+		@param
+			actType 激活函数编号
+		@return
+			新建点集编号
+	*/
 	int AddSet(std::string name,int activeType)
 	{
 		if( FindSetId.find( name ) != FindSetId.end() )
@@ -63,6 +73,16 @@ namespace NERVES{
 		DEBUG::SuccessPut("\033[1;36mAddSet\033[1;37m { name:%s , active:%s }",name.c_str(),ACTIVE::FindActiveName[activeType].c_str());
 		return NerveSets.size()-1;
 	}
+	/*
+		@brief
+			添加点集
+		@param
+			name 点集名称
+		@param
+			actType 激活函数名称
+		@return
+			新建点集所属编号
+	*/
 	int AddSet(std::string name,std::string actType)
 	{
 		if( FindSetId.find( name ) != FindSetId.end() )
@@ -73,7 +93,14 @@ namespace NERVES{
 		DEBUG::ErrEnd();
 		return AddSet( name , ActiveIt->second );
 	}
-	
+	/*
+		@brief
+			在指定点集中新建结点
+		@param
+			SetId 新建结点所在点集编号
+		@return
+			新建结点在所属点集中的编号
+	*/
 	int AddNerve(int SetId)
 	{
 		if( SetId >= FindSetId.size() )
@@ -83,8 +110,16 @@ namespace NERVES{
 		key.id = NerveSets[ SetId ].Nerves.size();
 		NerveSets[ SetId ].Nerves.push_back( key );
 		DEBUG::SuccessPut("\033[1;36mAddNerve\033[1;37m { SetName:%s , NerveId:%d }",FindSetName[SetId].c_str(),key.id);
-		return 0;
+		return key.id;
 	}
+	/*
+		@brief
+			在指定点集中新建结点
+		@param
+			SetName 新建结点所在点集名称
+		@return
+			新建结点在所属点集中的编号
+	*/
 	int AddNerve(std::string SetName)
 	{
 		if( FindSetId.find( SetName ) == FindSetId.end() )
